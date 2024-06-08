@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Contato</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 
 <body>
     <div class="container">
-        <h1>Contato</h1>
+        <h1>Let's Talk!</h1>
+        <div class="email-info">
+            <i class="fas fa-envelope" style="color: #0db2c3;"></i>
+            <span style="color: #0db2c3;"> gabrieleduardomonsani@hotmail.com</span>
+        </div>
         <form action="process_form.php" method="post">
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name" required>
@@ -25,6 +30,7 @@
             <button type="submit">Enviar</button>
         </form>
     </div>
+
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #0db2c3; 
+    background-color: #0db2c3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,22 +8,34 @@ body {
     margin: 0;
 }
 
+html, body {
+    height: 100%; /* Garante que o html e o body ocupem 100% da altura */
+    margin: 0;
+}
+
 .container {
     background-color: #fff;
-    padding: 40px; /* Ajusta o padding para evitar que o conteúdo fique muito distante das bordas */
+    padding: 30px; /* Ajusta o padding para evitar que o conteúdo fique muito distante das bordas */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Define a largura para 100% da viewport */
-    max-width: 600px; /* Largura máxima maior para telas grandes */
-    margin: 0 auto; /* Centraliza a caixa horizontalmente */
+    width: 50%; /* Define a largura para 50% */
+    max-width: 1000px; /* Largura máxima para telas grandes */
+    height: 100%; /* Define a altura como 100% para ocupar a altura total da página */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Garante que o conteúdo seja posicionado no topo */
+    padding-top: 10px; /* Reduz o padding superior para mover os elementos para cima */
 }
+
 h1 {
-    text-align: center;
-    color: #3d86bc; 
+    font-size: 50px;
+    text-align: left;
+    color: #0db2c3;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    flex-grow: 1; /* Permite que o form ocupe o espaço disponível */
 }
 
 label {
@@ -36,6 +48,7 @@ input, textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
+    margin-bottom: 10px; /* Adiciona espaçamento inferior para separar as caixas */
 }
 
 button {
@@ -50,4 +63,27 @@ button {
 
 button:hover {
     background-color: #4cae4c;
+}
+
+.side-div {
+    font-size: 30px;
+    background-color: #0db2c3;
+    width: 350px;
+    height: 250px;
+    position: absolute;
+    left: 200px; /* Define a posição à esquerda */
+    overflow: hidden; /* Garante que o texto não ultrapasse os limites da div */
+}
+
+.email-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+.email-info i {
+    margin-right: 10px;
+    color: #0db2c3; 
 }
