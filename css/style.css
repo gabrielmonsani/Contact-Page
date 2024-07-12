@@ -19,7 +19,7 @@ html, body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 50%; /* Define a largura para 50% */
     max-width: 1000px; /* Largura máxima para telas grandes */
-    height: 100%; /* Define a altura como 100% para ocupar a altura total da página */
+    height: auto; /* Define a altura como auto para ajustar ao conteúdo */
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Garante que o conteúdo seja posicionado no topo */
@@ -86,4 +86,21 @@ button:hover {
 .email-info i {
     margin-right: 10px;
     color: #0db2c3; 
+}
+
+.status-message {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
 }

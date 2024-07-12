@@ -16,6 +16,13 @@
             <i class="fas fa-envelope email-icon" aria-label="Ícone de e-mail"></i>
             <span class="email-address">gabrieleduardomonsani@hotmail.com</span>
         </div>
+
+        <?php
+        if (isset($_GET['error'])) {
+            echo '<p class="status-message error">Erro ao enviar o formulário. Tente novamente.</p>';
+        }
+        ?>
+
         <form action="process_form.php" method="post">
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name" required>
