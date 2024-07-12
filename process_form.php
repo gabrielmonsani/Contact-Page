@@ -18,4 +18,4 @@ if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'
     header('Location: /contact.php?error');
     exit;
 }
-?>
+
