@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 class Mensagem {
     private $conteudo;
     private $remetente;
