@@ -1,5 +1,5 @@
 <?php
-use App\Mensagem;
+require_once 'message.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: index.php');
