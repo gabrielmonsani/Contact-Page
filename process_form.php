@@ -1,5 +1,6 @@
 <?php
 require_once 'message.php';
+require_once 'custom_exceptions.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: index.php');
@@ -19,12 +20,16 @@ try {
             header('Location: sucess.php');
             exit;
         } else {
-            throw new Exception('Remetente não autorizado.');
+            throw new UnauthorizedSenderException();
         }
     } else {
-        throw new Exception('Todos os campos são obrigatórios.');
+        throw new MissingFieldsException();
     }
-} catch (Exception $e) {
+} catch (UnauthorizedSenderException $e) {
+    $errorMsg = $e->getMessage();
+    header("Location: index.php?error&msg=" . urlencode($errorMsg));
+    exit;
+} catch (MissingFieldsException $e) {
     $errorMsg = $e->getMessage();
     header("Location: index.php?error&msg=" . urlencode($errorMsg));
     exit;
