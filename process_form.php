@@ -1,6 +1,9 @@
 <?php
-require_once 'message.php';
-require_once 'custom_exceptions.php';
+require_once 'autoload.php';
+
+use App\Mensagem;
+use App\CustomExceptions\UnauthorizedSenderException;
+use App\CustomExceptions\MissingFieldsException;
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: index.php');
@@ -15,7 +18,7 @@ try {
 
         $mensagem = new Mensagem($mensagemTexto, $email, 'gabrieleduardomonsani@hotmail.com');
 
-        // Simulando um possível erro para demonstração
+    
         if ($mensagem->getRemetente() === 'gabrieleduardomonsani@hotmail.com') {
             header('Location: sucess.php');
             exit;
