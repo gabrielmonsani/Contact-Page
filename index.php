@@ -18,8 +18,8 @@
         </div>
 
         <?php
-        if (isset($_GET['error'])) {
-            echo '<p class="status-message error">Erro ao enviar o formulário. Tente novamente.</p>';
+        if (isset($_GET['error']) && isset($_GET['msg'])) {
+            echo '<p class="status-message error">' . htmlspecialchars($_GET['msg']) . '</p>';
         }
         ?>
 

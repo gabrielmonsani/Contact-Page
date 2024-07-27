@@ -6,22 +6,27 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])) {
-    $nome = $_POST['name'];
-    $email = $_POST['email'];
-    $mensagemTexto = $_POST['message'];
+try {
+    if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])) {
+        $nome = $_POST['name'];
+        $email = $_POST['email'];
+        $mensagemTexto = $_POST['message'];
 
-    $mensagem = new Mensagem($mensagemTexto, $email, 'gabrieleduardomonsani@hotmail.com');
+        $mensagem = new Mensagem($mensagemTexto, $email, 'gabrieleduardomonsani@hotmail.com');
 
-    if ($mensagem->getRemetente() === 'gabrieleduardomonsani@hotmail.com') {
-        header('Location: sucess.php');
-        exit;
+        // Simulando um possível erro para demonstração
+        if ($mensagem->getRemetente() === 'gabrieleduardomonsani@hotmail.com') {
+            header('Location: sucess.php');
+            exit;
+        } else {
+            throw new Exception('Remetente não autorizado.');
+        }
     } else {
-        header('Location: index.php?error');
-        exit;
+        throw new Exception('Todos os campos são obrigatórios.');
     }
-} else {
-    header('Location: index.php?error');
+} catch (Exception $e) {
+    $errorMsg = $e->getMessage();
+    header("Location: index.php?error&msg=" . urlencode($errorMsg));
     exit;
 }
 
