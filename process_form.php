@@ -1,6 +1,8 @@
 <?php
-require_once 'message.php';
+require_once 'vendor/autoload.php';
 require_once 'custom_exceptions.php';
+
+use Entities\Mensagem;
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: index.php');

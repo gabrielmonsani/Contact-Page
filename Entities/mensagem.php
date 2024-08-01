@@ -1,5 +1,7 @@
 <?php
 
+namespace Entities;
+
 class Mensagem {
     private $conteudo;
     private $remetente;
