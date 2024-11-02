@@ -1,7 +1,5 @@
 {
-    "autoload": {
-        "psr-4": {
-            "Entities\\": "Entities/"
-        }
+    "require": {
+        "guzzlehttp/guzzle": "^7.9"
     }
 }
