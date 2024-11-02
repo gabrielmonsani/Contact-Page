@@ -11,3 +11,9 @@ class MissingFieldsException extends \Exception {
         parent::__construct($message, $code, $previous);
     }
 }
+
+class ApiResponseException extends \Exception {
+    public function __construct($message = "Erro na resposta da API.", $code = 0, \Exception $previous = null) {
+        parent::__construct($message, $code, $previous);
+    }
+}

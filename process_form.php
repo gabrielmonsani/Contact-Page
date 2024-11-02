@@ -31,24 +31,22 @@ try {
             exit;
         } else {
             $errorBody = $response->getBody()->getContents();
-            throw new RuntimeException('Erro ao enviar mensagem. Código: ' . $statusCode . ' Detalhes: ' . $errorBody);
+            throw new ApiResponseException('Erro ao enviar mensagem. Código: ' . $statusCode . ' Detalhes: ' . $errorBody);
         }
     } else {
-        throw new MissingFieldsException(); // Usando a exceção personalizada
+        throw new MissingFieldsException();
     }
 } catch (MissingFieldsException $e) {
     $errorMsg = $e->getMessage();
     header("Location: index.php?error&msg=" . urlencode($errorMsg));
     exit;
-} catch (UnauthorizedSenderException $e) {
+} catch (ApiResponseException $e) {
+
     $errorMsg = $e->getMessage();
-    header("Location: index.php?error&msg=" . urlencode($errorMsg));
-    exit;
-} catch (RuntimeException $e) {
-    $errorMsg = 'Ocorreu um erro ao enviar a mensagem: ' . $e->getMessage();
     echo $errorMsg;
     exit;
 } catch (\Exception $e) {
+    // Captura e exibe erros gerais para depuração, se necessário
     $errorMsg = 'Ocorreu um erro inesperado: ' . $e->getMessage();
     echo $errorMsg;
     exit;
