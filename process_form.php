@@ -1,7 +1,6 @@
 <?php
 require_once 'vendor/autoload.php';
 require_once 'custom_exceptions.php';
-
 use GuzzleHttp\Client;
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -14,7 +13,6 @@ try {
         $nome = $_POST['name'];
         $email = $_POST['email'];
         $mensagem = $_POST['message'];
-
         $client = new Client();
         $apiUrl = 'http://localhost:3000/mensagem';
 
@@ -26,9 +24,8 @@ try {
                 'mensagem' => $mensagem
             ]
         ]);
-
+        
         $statusCode = $response->getStatusCode();
-
         if ($statusCode === 200) {
             header('Location: sucess.php');
             exit;
@@ -44,8 +41,7 @@ try {
     header("Location: index.php?error&msg=" . urlencode($errorMsg));
     exit;
 } catch (Exception $e) {
-    // Captura e exibe o erro específico da API para depuração
     $errorMsg = 'Ocorreu um erro ao enviar a mensagem: ' . $e->getMessage();
-    echo $errorMsg; // Exibe o erro diretamente para depuração
+    echo $errorMsg;
     exit;
 }
